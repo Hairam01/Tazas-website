@@ -1,0 +1,428 @@
+timestamp: 2023-05-31T00:13:29.314888
+CREATE TABLE "auth_user"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "first_name" CHAR(128),
+    "last_name" CHAR(128),
+    "email" CHAR(512),
+    "password" CHAR(512),
+    "registration_key" CHAR(512),
+    "reset_password_key" CHAR(512),
+    "registration_id" CHAR(512)
+);
+success!
+timestamp: 2023-05-31T00:13:29.350866
+CREATE TABLE "auth_group"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "role" CHAR(512),
+    "description" TEXT
+);
+success!
+timestamp: 2023-05-31T00:13:29.360862
+CREATE TABLE "auth_membership"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE ON UPDATE CASCADE  ,
+    "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE ON UPDATE CASCADE  
+);
+success!
+timestamp: 2023-05-31T00:13:29.370855
+CREATE TABLE "auth_permission"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE ON UPDATE CASCADE  ,
+    "name" CHAR(512),
+    "table_name" CHAR(512),
+    "record_id" INTEGER
+);
+success!
+timestamp: 2023-05-31T00:13:29.380852
+CREATE TABLE "auth_event"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "time_stamp" TIMESTAMP,
+    "client_ip" CHAR(512),
+    "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE ON UPDATE CASCADE  ,
+    "origin" CHAR(512),
+    "description" TEXT
+);
+success!
+timestamp: 2023-05-31T00:13:29.390844
+CREATE TABLE "auth_cas"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE ON UPDATE CASCADE  ,
+    "created_on" TIMESTAMP,
+    "service" CHAR(512),
+    "ticket" CHAR(512),
+    "renew" CHAR(1)
+);
+success!
+timestamp: 2023-05-31T01:44:57.244509
+CREATE TABLE `auth_user`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `first_name` VARCHAR(128),
+    `last_name` VARCHAR(128),
+    `email` VARCHAR(512),
+    `password` VARCHAR(512),
+    `registration_key` VARCHAR(512),
+    `reset_password_key` VARCHAR(512),
+    `registration_id` VARCHAR(512),
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+timestamp: 2023-06-05T16:23:54.720386
+CREATE TABLE `auth_user`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `first_name` VARCHAR(128),
+    `last_name` VARCHAR(128),
+    `email` VARCHAR(512),
+    `password` VARCHAR(512),
+    `registration_key` VARCHAR(512),
+    `reset_password_key` VARCHAR(512),
+    `registration_id` VARCHAR(512),
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+timestamp: 2023-06-05T18:22:35.083392
+CREATE TABLE `auth_user`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `first_name` VARCHAR(128),
+    `last_name` VARCHAR(128),
+    `email` VARCHAR(512),
+    `password` VARCHAR(512),
+    `registration_key` VARCHAR(512),
+    `reset_password_key` VARCHAR(512),
+    `registration_id` VARCHAR(512),
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+timestamp: 2023-06-05T18:30:20.413713
+CREATE TABLE `auth_user`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `first_name` VARCHAR(128),
+    `last_name` VARCHAR(128),
+    `email` VARCHAR(512),
+    `username` VARCHAR(128),
+    `password` VARCHAR(512),
+    `registration_key` VARCHAR(512),
+    `reset_password_key` VARCHAR(512),
+    `registration_id` VARCHAR(512),
+    `fechanac` VARCHAR(512),
+    `insignias` VARCHAR(512),
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+timestamp: 2023-06-05T18:33:09.606100
+CREATE TABLE `auth_user`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `first_name` VARCHAR(128),
+    `last_name` VARCHAR(128),
+    `email` VARCHAR(512),
+    `username` VARCHAR(128),
+    `password` VARCHAR(512),
+    `registration_key` VARCHAR(512),
+    `reset_password_key` VARCHAR(512),
+    `registration_id` VARCHAR(512),
+    `fechanac` VARCHAR(512),
+    `insignias` VARCHAR(512),
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+timestamp: 2023-06-05T18:42:18.941116
+CREATE TABLE `auth_user`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `first_name` VARCHAR(128),
+    `last_name` VARCHAR(128),
+    `email` VARCHAR(512),
+    `username` VARCHAR(128),
+    `password` VARCHAR(512),
+    `registration_key` VARCHAR(512),
+    `reset_password_key` VARCHAR(512),
+    `registration_id` VARCHAR(512),
+    `fechanac` VARCHAR(512),
+    `insignias` VARCHAR(512),
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+timestamp: 2023-06-05T18:43:15.340690
+CREATE TABLE `auth_user`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `first_name` VARCHAR(128),
+    `last_name` VARCHAR(128),
+    `email` VARCHAR(512),
+    `username` VARCHAR(128),
+    `password` VARCHAR(512),
+    `registration_key` VARCHAR(512),
+    `reset_password_key` VARCHAR(512),
+    `registration_id` VARCHAR(512),
+    `fechanac` VARCHAR(512),
+    `insignias` VARCHAR(512),
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+timestamp: 2023-06-05T18:43:15.350685
+CREATE TABLE `auth_user`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `first_name` VARCHAR(128),
+    `last_name` VARCHAR(128),
+    `email` VARCHAR(512),
+    `username` VARCHAR(128),
+    `password` VARCHAR(512),
+    `registration_key` VARCHAR(512),
+    `reset_password_key` VARCHAR(512),
+    `registration_id` VARCHAR(512),
+    `fechanac` VARCHAR(512),
+    `insignias` VARCHAR(512),
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+timestamp: 2023-06-05T18:54:25.959455
+CREATE TABLE `auth_user`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `first_name` VARCHAR(128),
+    `last_name` VARCHAR(128),
+    `email` VARCHAR(512),
+    `username` VARCHAR(128),
+    `password` VARCHAR(512),
+    `registration_key` VARCHAR(512),
+    `reset_password_key` VARCHAR(512),
+    `registration_id` VARCHAR(512),
+    `fechanac` VARCHAR(512),
+    `insignias` VARCHAR(512),
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2023-06-05T18:54:26.135355
+CREATE TABLE `auth_group`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `role` VARCHAR(512),
+    `description` LONGTEXT,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2023-06-05T18:54:26.180330
+CREATE TABLE `auth_membership`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `user_id` INT  , INDEX `user_id__idx` (`user_id`), FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`) ON DELETE CASCADE,
+    `group_id` INT  , INDEX `group_id__idx` (`group_id`), FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`) ON DELETE CASCADE,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2023-06-05T18:54:26.248289
+CREATE TABLE `auth_permission`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `group_id` INT  , INDEX `group_id__idx` (`group_id`), FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`) ON DELETE CASCADE,
+    `name` VARCHAR(512),
+    `table_name` VARCHAR(512),
+    `record_id` INTEGER,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2023-06-05T18:54:26.368220
+CREATE TABLE `auth_event`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `time_stamp` DATETIME,
+    `client_ip` VARCHAR(512),
+    `user_id` INT  , INDEX `user_id__idx` (`user_id`), FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`) ON DELETE CASCADE,
+    `origin` VARCHAR(512),
+    `description` LONGTEXT,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2023-06-05T18:54:26.412195
+CREATE TABLE `auth_cas`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `user_id` INT  , INDEX `user_id__idx` (`user_id`), FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`) ON DELETE CASCADE,
+    `created_on` DATETIME,
+    `service` VARCHAR(512),
+    `ticket` VARCHAR(512),
+    `renew` CHAR(1),
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2023-06-05T19:25:08.072167
+ALTER TABLE `auth_user` ADD `fechanac__tmp` DATE;
+success!
+UPDATE `auth_user` SET `fechanac__tmp`=`fechanac`;
+success!
+ALTER TABLE `auth_user` DROP COLUMN `fechanac`;
+success!
+ALTER TABLE `auth_user` ADD `fechanac` DATE;
+success!
+UPDATE `auth_user` SET `fechanac`=`fechanac__tmp`;
+success!
+ALTER TABLE `auth_user` DROP COLUMN `fechanac__tmp`;
+success!
+timestamp: 2023-06-05T19:25:08.510429
+ALTER TABLE `auth_user` ADD `insignias__tmp` INTEGER;
+success!
+UPDATE `auth_user` SET `insignias__tmp`=`insignias`;
+success!
+ALTER TABLE `auth_user` DROP COLUMN `insignias`;
+success!
+ALTER TABLE `auth_user` ADD `insignias` INTEGER;
+success!
+UPDATE `auth_user` SET `insignias`=`insignias__tmp`;
+success!
+ALTER TABLE `auth_user` DROP COLUMN `insignias__tmp`;
+success!
+timestamp: 2023-06-05T19:31:34.157958
+CREATE TABLE `direcciones`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `usuario` INT  , INDEX `usuario__idx` (`usuario`), FOREIGN KEY (`usuario`) REFERENCES `auth_user` (`id`) ON DELETE CASCADE,
+    `nombre` VARCHAR(512),
+    `calle` VARCHAR(512),
+    `numero` INTEGER,
+    `colonia` VARCHAR(512),
+    `cp` VARCHAR(512),
+    `ciudad` VARCHAR(512),
+    `referencias` VARCHAR(512),
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2023-06-05T19:34:09.108629
+ALTER TABLE `direcciones` ADD `nombre__tmp` VARCHAR(512) NOT NULL;
+success!
+UPDATE `direcciones` SET `nombre__tmp`=`nombre`;
+success!
+ALTER TABLE `direcciones` DROP COLUMN `nombre`;
+success!
+ALTER TABLE `direcciones` ADD `nombre` VARCHAR(512) NOT NULL;
+success!
+UPDATE `direcciones` SET `nombre`=`nombre__tmp`;
+success!
+ALTER TABLE `direcciones` DROP COLUMN `nombre__tmp`;
+success!
+timestamp: 2023-06-05T19:34:09.273535
+ALTER TABLE `direcciones` ADD `calle__tmp` VARCHAR(512) NOT NULL;
+success!
+UPDATE `direcciones` SET `calle__tmp`=`calle`;
+success!
+ALTER TABLE `direcciones` DROP COLUMN `calle`;
+success!
+ALTER TABLE `direcciones` ADD `calle` VARCHAR(512) NOT NULL;
+success!
+UPDATE `direcciones` SET `calle`=`calle__tmp`;
+success!
+ALTER TABLE `direcciones` DROP COLUMN `calle__tmp`;
+success!
+timestamp: 2023-06-05T19:34:09.492409
+ALTER TABLE `direcciones` ADD `numero__tmp` INTEGER NOT NULL;
+success!
+UPDATE `direcciones` SET `numero__tmp`=`numero`;
+success!
+ALTER TABLE `direcciones` DROP COLUMN `numero`;
+success!
+ALTER TABLE `direcciones` ADD `numero` INTEGER NOT NULL;
+success!
+UPDATE `direcciones` SET `numero`=`numero__tmp`;
+success!
+ALTER TABLE `direcciones` DROP COLUMN `numero__tmp`;
+success!
+timestamp: 2023-06-05T19:34:09.631329
+ALTER TABLE `direcciones` ADD `colonia__tmp` VARCHAR(512) NOT NULL;
+success!
+UPDATE `direcciones` SET `colonia__tmp`=`colonia`;
+success!
+ALTER TABLE `direcciones` DROP COLUMN `colonia`;
+success!
+ALTER TABLE `direcciones` ADD `colonia` VARCHAR(512) NOT NULL;
+success!
+UPDATE `direcciones` SET `colonia`=`colonia__tmp`;
+success!
+ALTER TABLE `direcciones` DROP COLUMN `colonia__tmp`;
+success!
+timestamp: 2023-06-05T19:34:09.767253
+ALTER TABLE `direcciones` ADD `cp__tmp` VARCHAR(512) NOT NULL;
+success!
+UPDATE `direcciones` SET `cp__tmp`=`cp`;
+success!
+ALTER TABLE `direcciones` DROP COLUMN `cp`;
+success!
+ALTER TABLE `direcciones` ADD `cp` VARCHAR(512) NOT NULL;
+success!
+UPDATE `direcciones` SET `cp`=`cp__tmp`;
+success!
+ALTER TABLE `direcciones` DROP COLUMN `cp__tmp`;
+success!
+timestamp: 2023-06-05T19:34:09.875432
+ALTER TABLE `direcciones` ADD `ciudad__tmp` VARCHAR(512) NOT NULL;
+success!
+UPDATE `direcciones` SET `ciudad__tmp`=`ciudad`;
+success!
+ALTER TABLE `direcciones` DROP COLUMN `ciudad`;
+success!
+ALTER TABLE `direcciones` ADD `ciudad` VARCHAR(512) NOT NULL;
+success!
+UPDATE `direcciones` SET `ciudad`=`ciudad__tmp`;
+success!
+ALTER TABLE `direcciones` DROP COLUMN `ciudad__tmp`;
+success!
+timestamp: 2023-06-05T19:34:09.988104
+ALTER TABLE `direcciones` ADD `referencias__tmp` VARCHAR(512) NOT NULL;
+success!
+UPDATE `direcciones` SET `referencias__tmp`=`referencias`;
+success!
+ALTER TABLE `direcciones` DROP COLUMN `referencias`;
+success!
+ALTER TABLE `direcciones` ADD `referencias` VARCHAR(512) NOT NULL;
+success!
+UPDATE `direcciones` SET `referencias`=`referencias__tmp`;
+success!
+ALTER TABLE `direcciones` DROP COLUMN `referencias__tmp`;
+success!
+timestamp: 2023-06-05T19:39:55.513520
+CREATE TABLE `colecciones`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `nombre` VARCHAR(512) NOT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2023-06-05T19:39:55.548523
+CREATE TABLE `modelos`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `coleccion` INT  NOT NULL , INDEX `coleccion__idx` (`coleccion`), FOREIGN KEY (`coleccion`) REFERENCES `colecciones` (`id`) ON DELETE CASCADE,
+    `nombre` VARCHAR(512) NOT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2023-06-05T19:39:55.603388
+CREATE TABLE `inventario_tazas`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `existencias` INTEGER NOT NULL,
+    `descripcion` VARCHAR(512) NOT NULL,
+    `color` VARCHAR(512) NOT NULL,
+    `diseño` INT  , INDEX `diseño__idx` (`diseño`), FOREIGN KEY (`diseño`) REFERENCES `modelos` (`id`) ON DELETE CASCADE,
+    `precio` DOUBLE,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2023-06-05T19:51:00.151305
+ALTER TABLE `modelos` ADD `imagen` VARCHAR(512);
+success!
+timestamp: 2023-06-05T19:51:00.185060
+CREATE TABLE `estados`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `descripcion` VARCHAR(512) NOT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2023-06-05T19:51:00.209694
+CREATE TABLE `pedidos`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `cliente` INT  NOT NULL , INDEX `cliente__idx` (`cliente`), FOREIGN KEY (`cliente`) REFERENCES `auth_user` (`id`) ON DELETE CASCADE,
+    `direccion` INT  NOT NULL , INDEX `direccion__idx` (`direccion`), FOREIGN KEY (`direccion`) REFERENCES `direcciones` (`id`) ON DELETE CASCADE,
+    `estado` INT  NOT NULL , INDEX `estado__idx` (`estado`), FOREIGN KEY (`estado`) REFERENCES `estados` (`id`) ON DELETE CASCADE,
+    `rastreo` VARCHAR(512),
+    `encargado` INT  , INDEX `encargado__idx` (`encargado`), FOREIGN KEY (`encargado`) REFERENCES `auth_user` (`id`) ON DELETE CASCADE,
+    `entrega` DATE,
+    `fecha` DATETIME,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2023-06-05T20:20:15.514209
+ALTER TABLE `modelos` ADD `descripcion` VARCHAR(512);
+success!
+success!
+timestamp: 2023-06-05T20:20:15.559756
+ALTER TABLE `pedidos` ADD `total` DOUBLE NOT NULL;
+success!
+timestamp: 2023-06-05T20:20:15.597590
+CREATE TABLE `desglose_pedidos`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `pedido` INT  NOT NULL , INDEX `pedido__idx` (`pedido`), FOREIGN KEY (`pedido`) REFERENCES `pedidos` (`id`) ON DELETE CASCADE,
+    `diseño` INT  NOT NULL , INDEX `diseño__idx` (`diseño`), FOREIGN KEY (`diseño`) REFERENCES `modelos` (`id`) ON DELETE CASCADE,
+    `precio` DOUBLE NOT NULL,
+    `cantidad` INTEGER NOT NULL,
+    `estado` INT  NOT NULL , INDEX `estado__idx` (`estado`), FOREIGN KEY (`estado`) REFERENCES `estados` (`id`) ON DELETE CASCADE,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!

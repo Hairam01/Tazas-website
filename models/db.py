@@ -30,9 +30,8 @@ if not request.env.web2py_runtime_gae:
     # ---------------------------------------------------------------------
     # if NOT running on Google App Engine use SQLite or other DB
     # ---------------------------------------------------------------------
-    db = DAL(configuration.get('db.uri'),
-             pool_size=configuration.get('db.pool_size'),
-             migrate_enabled=configuration.get('db.migrate'),
+    db = DAL('mysql://root:#b6XexuDYKcD01@localhost/test?set_encoding=utf8mb4',
+             pool_size=5,
              check_reserved=['all'])
 else:
     # ---------------------------------------------------------------------
@@ -91,8 +90,11 @@ auth = Auth(db, host_names=configuration.get('host.names'))
 # -------------------------------------------------------------------------
 # create all tables needed by auth, maybe add a list of extra fields
 # -------------------------------------------------------------------------
-auth.settings.extra_fields['auth_user'] = []
-auth.define_tables(username=False, signature=False)
+auth.settings.extra_fields['auth_user'] = [
+    Field('fechanac',type="date"),
+    Field('insignias',type="integer")
+]
+auth.define_tables(username=True)
 
 # -------------------------------------------------------------------------
 # configure email
@@ -148,6 +150,56 @@ if configuration.get('scheduler.enabled'):
 # >>> rows = db(db.mytable.myfield == 'value').select(db.mytable.ALL)
 # >>> for row in rows: print row.id, row.myfield
 # -------------------------------------------------------------------------
+db.define_table('direcciones', 
+                Field('usuario','reference auth_user',notnull=True),
+                Field('nombre',type='string',notnull=True),
+                Field('calle',type='string',notnull=True),
+                Field('numero',type='integer',notnull=True),
+                Field('colonia',type='string',notnull=True),
+                Field('cp',type='string',notnull=True),
+                Field('ciudad',type='string',notnull=True),
+                Field('referencias',type='string',notnull=True)
+                )
+
+db.define_table('colecciones',
+                Field('nombre','string',notnull=True))
+
+db.define_table('modelos',
+                Field('coleccion','reference colecciones',notnull=True),
+                Field('nombre','string',notnull=True),
+                Field('descripcion','string'),
+                Field('imagen','upload')
+                )
+
+db.define_table('inventario_tazas',
+                Field('existencias',type='integer',notnull=True),
+                Field('descripcion',type='string',notnull=True),
+                Field('color',type='string',notnull=True),
+                Field('diseño','reference modelos'),
+                Field('precio','double')
+                )
+
+db.define_table('estados',
+                Field('descripcion','string',notnull=True))
+
+db.define_table('pedidos',
+                Field('cliente','reference auth_user',notnull=True),
+                Field('direccion','reference direcciones',notnull=True),
+                Field('estado','reference estados',notnull=True),
+                Field('rastreo','string'),
+                Field('encargado','reference auth_user'),
+                Field('entrega','date'),
+                Field('fecha','datetime'),
+                Field('total','double',notnull=True) 
+                )
+
+db.define_table('desglose_pedidos',
+                Field('pedido','reference pedidos',notnull=True),
+                Field('diseño','reference modelos',notnull=True),
+                Field('precio','double',notnull=True),
+                Field('cantidad','integer',notnull=True),
+                Field('estado','reference estados',notnull=True)
+                )
 
 # -------------------------------------------------------------------------
 # after defining tables, uncomment below to enable auditing
