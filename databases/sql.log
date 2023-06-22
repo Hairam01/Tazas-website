@@ -426,3 +426,41 @@ CREATE TABLE `desglose_pedidos`(
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB CHARACTER SET utf8;
 success!
+timestamp: 2023-06-05T20:46:19.949084
+ALTER TABLE `auth_user` ADD `fechanac__tmp` DATE NOT NULL;
+success!
+UPDATE `auth_user` SET `fechanac__tmp`=`fechanac`;
+success!
+ALTER TABLE `auth_user` DROP COLUMN `fechanac`;
+success!
+ALTER TABLE `auth_user` ADD `fechanac` DATE NOT NULL;
+success!
+UPDATE `auth_user` SET `fechanac`=`fechanac__tmp`;
+success!
+ALTER TABLE `auth_user` DROP COLUMN `fechanac__tmp`;
+success!
+success!
+timestamp: 2023-06-06T01:50:12.819731
+ALTER TABLE `colecciones` ADD `banner` VARCHAR(512);
+success!
+timestamp: 2023-06-06T10:34:03.010228
+ALTER TABLE `auth_user` ADD `foto` VARCHAR(512);
+success!
+success!
+timestamp: 2023-06-06T14:04:20.063506
+ALTER TABLE `modelos` ADD `precio` DOUBLE;
+success!
+timestamp: 2023-06-06T14:56:44.888118
+CREATE TABLE `carrito`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `usuario` INT  NOT NULL , INDEX `usuario__idx` (`usuario`), FOREIGN KEY (`usuario`) REFERENCES `auth_user` (`id`) ON DELETE CASCADE,
+    `cantidad` INTEGER,
+    `producto` INT  NOT NULL , INDEX `producto__idx` (`producto`), FOREIGN KEY (`producto`) REFERENCES `modelos` (`id`) ON DELETE CASCADE,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2023-06-06T16:40:19.209169
+ALTER TABLE `direcciones` ADD `estado` VARCHAR(512) NOT NULL;
+success!
+success!
+success!

@@ -1,0 +1,36 @@
+{{extend 'layout.html'}}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Santa Imelda</title>
+</head>
+<body>
+
+<!-- Menú de navegación -->
+<div id="addresses">
+    <h2>Mis Direcciones</h2>
+
+    {{if direcciones:}}
+    {{for item in direcciones:}}
+    <div class="address-card">
+        <div class="address-info">
+            <h3>{{=item.nombre}}</h3>
+            <p>Calle: {{=item.calle + " " + str(item.numero)}}</p>
+            <p>Ciudad: {{=item.ciudad}}</p>
+        </div>
+        <div class="address-actions">
+            <button class="edit-button">Editar</button>
+            <button class="delete-button">Eliminar</button>
+        </div>
+    </div>
+    {{pass}}
+    {{else:}}
+    <h1>No hay direcciones registradas</h1>
+    {{pass}}
+    <div class="add-address">
+        <a href="{{=URL('default','new_address')}}"><button class="add-button">+</button></a>
+    </div>
+</div>
+
+</body>
+</html>

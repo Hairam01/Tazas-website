@@ -1,0 +1,30 @@
+{{extend 'layout.html'}}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='UTF-8' />
+  <title>Santa Imelda</title>
+</head>
+<body>
+<h1>Nueva dirección</h1>
+<form enctype="multipart/form-data" method="post" name="new_address" style="display: grid;">
+    <input type="hidden" name="usuario" value="{{=auth.user.id}}"/>
+    <label>Nombre:</label>
+    <input type="text" name="nombre" placeholder="(casa, trabajo, etc...)" required/>
+    <label>Calle:</label>
+    <input type="text" name="calle" required>
+    <label>Número</label>
+    <input type="number" name="numero" required>
+    <label>Colonia</label>
+    <input type="text" name="colonia" required/>
+    <label>Código Postal</label>
+    <input type="text" name="cp" required/>
+    <label>Ciudad</label>
+    <input type="text" name="ciudad" required/>
+  <label>Referencias</label>
+  <input type="textarea" name="referencias"/>
+  <input type="hidden" name="_formname" value="new_address"/>
+  <input type="submit" value="Agregar Dirección"/>
+</form>
+</body>
+</html>

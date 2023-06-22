@@ -1,0 +1,27 @@
+{{extend 'layout.html'}}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Santa Imelda</title>
+</head>
+<body>
+<a href="{{=URL('default','orders')}}">Regresar</a>
+<div id="order-details">
+    <div class="order-card">
+        <h3>Pedido #{{=pedido[0].desglose_pedidos.pedido}}</h3>
+        {{for item in pedido:}}
+        <div class="product-details">
+            <div class="product-image">
+                <img src="{{=URL('download',args=item.modelos.imagen)}}" alt="Producto">
+            </div>
+            <div class="product-info">
+                <h4>{{=item.modelos.nombre}}</h4>
+                <p>Cantidad: {{=item.desglose_pedidos.cantidad}}</p>
+            </div>
+        </div>
+        {{pass}}
+    </div>
+</div>
+
+</body>
+</html>

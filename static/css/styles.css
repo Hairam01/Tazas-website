@@ -1,0 +1,689 @@
+#navbar {
+    overflow: auto;
+    border-bottom: 1px solid #333; /* Línea en la parte inferior */
+    margin-bottom: 30px;
+}
+
+#navbar a {
+    float: left;
+    display: block;
+    color: #333; /* Cambia esto al color que prefieras */
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+#navbar #login,
+#navbar #register {
+    float: right;
+}
+
+#navbar-logo {
+    float: left;
+    height: 50px; /* Ajusta esto al alto que desees para tu logo */
+    margin-right: 10px;
+}
+
+.double{
+    display: flex;
+}
+
+#carrusel {
+    width: 75%;
+    float: right;
+    /* Definir tamaño del carrusel */
+    height: 400px;
+    overflow: hidden; /* Esto es importante para esconder las partes de la imagen que sobresalen */
+    position: relative; /* Esto se necesita para posicionar los botones */
+
+    /* Centrar la imagen vertical y horizontalmente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 40px;
+}
+
+#panel {
+    float: left;
+}
+
+#carrusel button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+}
+
+#carrusel .w3-button.w3-display-left {
+    left: 10px;
+}
+
+#carrusel .w3-button.w3-display-right {
+    right: 10px;
+}
+
+#productos {
+    width: 100%;
+    float: right;
+}
+
+.producto-card {
+    width: 22%;
+    float: left;
+    /* Añadir bordes redondos */
+    border-radius: 15px;
+    /* Añadir margen */
+    margin: 10px;
+    /* Añadir un poco de padding para dar espacio alrededor del contenido */
+    padding: 10px;
+    /* Añadir un borde */
+    border: 1px solid #ddd;
+    
+}
+
+.producto-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    /* Añadir bordes redondos a la imagen también para que se ajuste a la tarjeta */
+    border-radius: 15px;
+}
+
+/* Estilos para el carrusel */
+.mySlides {
+    display: none;
+    /* Hacer que las imágenes se ajusten al carrusel */
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Esto hace que las imágenes mantengan su proporción */
+    border-radius: 20px;
+}
+.w3-left, .w3-right, .w3-badge {cursor: pointer}
+.w3-badge {height: 13px;width: 13px;padding: 0}
+
+
+
+/* Estilos para la página de perfil */
+#profile {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#profile-card {
+    display: flex;
+    align-items: center;
+    background: #f2f2f2;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 10px 20px rgba(0,0,0,0.1);
+}
+
+#user-info {
+    flex: 1;
+    text-align: center;
+}
+
+#user-actions {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#user-actions button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+#user-actions button:hover {
+    background-color: #555;
+}
+
+#user-actions button:focus {
+    outline: none;
+    box-shadow: 0px 0px 5px #555;
+}
+
+#user-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#user-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+
+
+#addresses {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.address-card {
+    display: flex;
+    justify-content: space-between;
+    background: #f2f2f2;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.address-info {
+    flex: 1;
+}
+
+.address-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.address-actions button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.address-actions button:hover {
+    background-color: #555;
+}
+
+.address-actions button:focus {
+    outline: none;
+    box-shadow: 0px 0px 5px #555;
+}
+
+.add-address {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.add-button {
+    padding: 10px;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-button:hover {
+    background-color: #555;
+}
+
+.add-button:focus {
+    outline: none;
+    box-shadow: 0px 0px 5px #555;
+}
+
+/* Estilos para títulos y texto de direcciones */
+.address-info h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.address-info p {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Estilos para la página de pedidos */
+#orders {
+    width: 50%;
+    margin: auto;
+    padding: 20px;
+    box-sizing: border-box;
+    
+}
+
+.order-card {
+    display: flex;
+    justify-content: space-between;
+    background: #f2f2f2;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    max-width: 500px;
+}
+
+.order-info {
+    display: flex;
+    align-items: center;
+}
+
+.order-image {
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
+    margin-right: 20px;
+    border-radius: 50%;
+}
+
+.order-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.order-status {
+    margin-right: 20px;
+}
+
+.order-actions {
+    display: flex;
+    align-items: center;
+}
+
+.order-actions .details-button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.order-actions .details-button:hover {
+    background-color: #555;
+}
+
+.order-actions .details-button:focus {
+    outline: none;
+    box-shadow: 0px 0px 5px #555;
+}
+
+
+
+
+
+/* Estilos para la página de detalles del pedido */
+#order-details {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+.order-card {
+    background: #f2f2f2;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: left;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.order-card h3 {
+    margin-bottom: 10px;
+}
+
+.order-card p {
+    margin-bottom: 10px;
+}
+
+.product-details {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.product-details .product-image {
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
+    margin-right: 20px;
+    border-radius: 10px;
+}
+
+.product-details .product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.product-details .product-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-details .product-info h4,
+.product-details .product-info p {
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+.order-card .order-status {
+    margin-top: 20px;
+}
+
+
+
+/* Estilos para el carrito de compra */
+#cart {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 10px;
+}
+
+.cart-item .delete-item {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.cart-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.cart-item .item-details {
+    flex: 1;
+}
+
+.cart-item .item-details h4 {
+    margin-bottom: 5px;
+}
+
+.cart-item .item-details p {
+    margin-bottom: 5px;
+}
+
+.cart-item .item-price {
+    font-weight: bold;
+}
+
+.cart-total {
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+.cart-total .total-price {
+    font-weight: bold;
+}
+
+.cart-buttons {
+    text-align: right;
+}
+
+.cart-buttons button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.cart-buttons button:hover {
+    background-color: #555;
+}
+
+.cart-buttons button:focus {
+    outline: none;
+    box-shadow: 0px 0px 5px #555;
+}
+
+
+
+/* Estilos para la página de confirmación de compra */
+#checkout {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.order-summary {
+    background: #f2f2f2;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.order-summary h3 {
+    margin-bottom: 10px;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.summary-item.total {
+    font-weight: bold;
+}
+
+.checkout-buttons {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.checkout-buttons button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.checkout-buttons button:hover {
+    background-color: #555;
+}
+
+.checkout-buttons button:focus {
+    outline: none;
+    box-shadow: 0px 0px 5px #555;
+}
+
+
+/* Estilos para la página de lista de pedidos */
+#orders {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#orders h2 {
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th:first-child, table td:first-child {
+    width: 15%;
+}
+
+table th:last-child, table td:last-child {
+    width: 20%;
+    text-align: center;
+}
+
+table td button {
+    padding: 5px 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+table td button:hover {
+    background-color: #555;
+}
+
+table td button:focus {
+    outline: none;
+    box-shadow: 0px 0px 5px #555;
+}
+
+
+
+
+
+
+/* Estilos para la página de detalle del producto */
+#product-details {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.close-button {
+    left: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.product-image {
+    margin-bottom: 20px;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.product-info h2 {
+    margin-bottom: 10px;
+}
+
+.product-features p {
+    margin-bottom: 5px;
+}
+
+.product-price {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.product-price h3 {
+    margin-right: 10px;
+}
+
+.add-to-cart {
+    padding: 10px 20px;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+}
+
+.add-to-cart:hover {
+    background-color: #555;
+}
+
+.add-to-cart:focus {
+    outline: none;
+    box-shadow: 0px 0px 5px #555;
+}

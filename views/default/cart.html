@@ -1,0 +1,38 @@
+{{extend 'layout.html'}}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Santa Imelda</title>
+</head>
+<body>
+
+<div id="cart">
+    <h2>Carrito de Compra</h2>
+    {{if cart:}}
+    {{for item in cart:}}
+    <div class="cart-item">
+        <a href="{{=URL('default','eliminar',args=item.carrito.id)}}"><span class="delete-item">x</span></a>
+        <img src="{{=URL('download',args=item.modelos.imagen)}}" alt="Producto 1">
+        <div class="item-details">
+            <h4>{{=item.modelos.nombre}}</h4>
+            <p>Precio: ${{=item.modelos.precio}}</p>
+        </div>
+        <p class="item-price">${{=item.modelos.precio}}</p>
+        {{total=total+item.modelos.precio}}
+    </div>
+    {{pass}}
+    <div class="cart-total">
+        <p>Total: <span class="total-price">${{=total}}</span></p>
+    </div>
+
+    <div class="cart-buttons">
+        <a href="{{=URL('default','checkout')}}"><button class="pay-button">Pagar</button></a>
+        <a href="{{=URL('default','limpiar')}}"><button class="cancel-button">Cancelar Compra</button></a>
+    </div>
+    {{else:}}
+    <h1>¡No hay nada en el carrito!</h1>
+    {{pass}}
+</div>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+{{extend 'layout.html'}}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Santa Imelda</title>
+</head>
+<body>
+<div id="checkout">
+    <h2>Confirmación de Compra</h2>
+    <form action="crear_orden" method="post" enctype="multipart/form-data">
+    <div class="dropdown">
+        <label>Dirección de envío:</label>
+        <select name="direccion">
+            {{if direcciones:}}
+            {{for item in direcciones:}}
+            <option title="{{=item.calle +' #' +str(item.numero)}}" value="{{=item.id}}">{{=item.nombre}}</option>
+            {{pass}}
+            {{else:}}
+            <option>No hay direcciones registradas</option>
+            {{pass}}
+        </select>
+    </div>
+    <div id="cart">
+        {{for item in cart:}}
+        <div class="cart-item">
+            <img src="{{=URL('download',args=item.modelos.imagen)}}" alt="Producto 1">
+            <div class="item-details">
+                <h4>{{=item.modelos.nombre}}</h4>
+                <p>Precio: ${{=item.modelos.precio}}</p>
+            </div>
+            <p class="item-price">${{=item.modelos.precio}}</p>
+            {{total=total+item.modelos.precio}}
+        </div>
+        {{pass}}
+    </div>
+
+    <div class="order-summary">
+        <h3>Resumen de Orden</h3>
+        <div class="summary-item">
+            <span>Subtotal:</span>
+            <span class="subtotal-price">${{=total}}0</span>
+        </div>
+        <div class="summary-item">
+            <span>Costo de Envío:</span>
+            <span class="shipping-price">$50.00</span>
+        </div>
+        <div class="summary-item total">
+            <span>Total:</span>
+            <span class="total-price">${{=total + 50}}0</span>
+            <input type="hidden" name="total" value="{{=total+50}}"/>
+        </div>
+    </div>
+
+    <div class="checkout-buttons">
+        <button class="buy-button">Comprar</button>
+    </form>    
+        <a href="{{=URL('default','index')}}"><button class="cancel-button">Cancelar Compra</button></a>
+    </div>
+</div>
+
+</body>
+</html>

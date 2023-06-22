@@ -32,7 +32,7 @@ if not request.env.web2py_runtime_gae:
     # ---------------------------------------------------------------------
     db = DAL('mysql://root:#b6XexuDYKcD01@localhost/test?set_encoding=utf8mb4',
              pool_size=5,
-             check_reserved=['all'])
+             check_reserved=['all'],lazy_tables=False)
 else:
     # ---------------------------------------------------------------------
     # connect to Google BigTable (optional 'google:datastore://namespace')
@@ -86,13 +86,17 @@ response.form_label_separator = ''
 
 # host names must be a list of allowed host names (glob syntax allowed)
 auth = Auth(db, host_names=configuration.get('host.names'))
+auth.settings.everybody_group_id = 1
+auth.settings.create_user_groups = None
+
 
 # -------------------------------------------------------------------------
 # create all tables needed by auth, maybe add a list of extra fields
 # -------------------------------------------------------------------------
 auth.settings.extra_fields['auth_user'] = [
-    Field('fechanac',type="date"),
-    Field('insignias',type="integer")
+    Field('foto','upload',default="placeholder.jpg"),
+    Field('fechanac',type="date",notnull=True),
+    Field('insignias',type="integer",notnull=False,writable=False)
 ]
 auth.define_tables(username=True)
 
@@ -158,17 +162,20 @@ db.define_table('direcciones',
                 Field('colonia',type='string',notnull=True),
                 Field('cp',type='string',notnull=True),
                 Field('ciudad',type='string',notnull=True),
+                Field('estado','string',notnull=True),
                 Field('referencias',type='string',notnull=True)
                 )
 
 db.define_table('colecciones',
-                Field('nombre','string',notnull=True))
+                Field('nombre','string',notnull=True),
+                Field('banner','upload'))
 
 db.define_table('modelos',
-                Field('coleccion','reference colecciones',notnull=True),
+                Field('coleccion','reference colecciones',notnull=False),
                 Field('nombre','string',notnull=True),
                 Field('descripcion','string'),
-                Field('imagen','upload')
+                Field('imagen','upload'),
+                Field('precio','double')
                 )
 
 db.define_table('inventario_tazas',
@@ -201,6 +208,11 @@ db.define_table('desglose_pedidos',
                 Field('estado','reference estados',notnull=True)
                 )
 
+db.define_table('carrito',
+                Field('usuario','reference auth_user',notnull=True),
+                Field('cantidad','integer'),
+                Field('producto','reference modelos',notnull=True)
+                )
 # -------------------------------------------------------------------------
 # after defining tables, uncomment below to enable auditing
 # -------------------------------------------------------------------------

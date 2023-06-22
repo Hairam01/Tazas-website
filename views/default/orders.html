@@ -1,0 +1,35 @@
+{{extend 'layout.html'}}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Santa Imelda</title>
+</head>
+<body>
+<div class="centrar">
+
+<div id="orders">
+    <h2>Mis Pedidos</h2>
+    {{for item in ordenes:}}
+    <div class="order-card">
+        <div class="order-info">
+            <div class="order-image">
+                <img src="https://images.unsplash.com/photo-1586264332797-cab9a662a896?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=736&q=80" alt="Imagen del Pedido">
+            </div>
+            <div class="order-status">
+                <h1>Orden #{{=item.pedidos.id}}</h1>
+            </div>
+            <div class="order-status">
+                <p>Estado: {{=item.estados.descripcion}}</p>
+            </div>
+        </div>
+        <div class="order-actions">
+            <a href="{{=URL('default','order_details',args=item.pedidos.id)}}"><button class="details-button">Ver Detalles del Pedido</button></a>
+        </div>
+    </div>
+    {{pass}}
+</div>
+
+</div>
+
+</body>
+</html>
